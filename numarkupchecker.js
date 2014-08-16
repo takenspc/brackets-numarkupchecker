@@ -22,8 +22,8 @@
 */
 
 var NuMarkupChecker = (function() {
-    'use strict';
-    
+    "use strict";
+
     return {
         _getMultipartFormData : function(boundary, params) {
             var payload = [];

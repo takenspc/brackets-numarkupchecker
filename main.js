@@ -41,8 +41,8 @@ define(function (require, exports, module) {
     };
     var prefs = PreferencesManager.getExtensionPrefs("numarkupchecker");
     var _lastRunOptions;
-    prefs.definePreference("url", "string", DEFAULT_OPTIONS.url)
-    prefs.definePreference("supportHTML4andXHTML1", "boolean", DEFAULT_OPTIONS.supportHTML4andXHTML1)
+    prefs.definePreference("url", "string", DEFAULT_OPTIONS.url);
+    prefs.definePreference("supportHTML4andXHTML1", "boolean", DEFAULT_OPTIONS.supportHTML4andXHTML1);
     prefs.on("change", function(e, data) {
         var options = getOptions();
         if (!_.isEqual(options, _lastRunOptions)) {
