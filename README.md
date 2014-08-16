@@ -1,6 +1,6 @@
 # Nu Markup Checker for Brackets
 
-A Brackets extension to add checking HTML files using the Nu Markup Checker (Validator.nu).
+A Brackets extension adds support of checking HTML files using the Nu Markup Checker (Validator.nu).
 
 ## HTML 4 and XHTML 1.0 Support
 
