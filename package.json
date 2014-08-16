@@ -1,0 +1,14 @@
+{
+    "name": "takenspc.numarkupchecker",
+    "title": "Nu Markup Checker for Brackets",
+    "description": "Adds Nu Markup Checker for Brackets",
+    "keywords": ["validator", "checker", "linter"],
+    "categories": "linting",
+    "homepage": "https://github.com/takenspc/brackets-numarkupchecker",
+    "version": "0.1.0",
+    "author": "Takeshi Kurosawa <taken.spc@gmail.com>",
+    "license": "MIT",
+    "engines": {
+        "brackets": ">=0.31.0"
+    }
+}
