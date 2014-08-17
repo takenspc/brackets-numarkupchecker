@@ -1,7 +1,7 @@
 {
     "name": "takenspc.numarkupchecker",
     "title": "Nu Markup Checker for Brackets",
-    "description": "Adds Nu Markup Checker for Brackets",
+    "description": "Adds support of Nu Markup Checker",
     "keywords": ["validator", "checker", "linter"],
     "categories": "linting",
     "homepage": "https://github.com/takenspc/brackets-numarkupchecker",
