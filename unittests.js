@@ -47,6 +47,7 @@ describe("A Public IDENTIFIERs Detection", function() {
             var identifier = NuMarkupChecker._getIdentifier(str);
             expect(identifier.preset).toBe(NuMarkupChecker._PRESET.STRICT);
             expect(identifier.parser).toBe(NuMarkupChecker._PARSER.XMLDTD);
+            expect(identifier.sniffdoctype).toBe(NuMarkupChecker._SNIFFDOCTYPE.NO);
         });
     });
 
@@ -75,6 +76,7 @@ describe("A Public IDENTIFIERs Detection", function() {
             var identifier = NuMarkupChecker._getIdentifier(str);
             expect(identifier.preset).toBe(NuMarkupChecker._PRESET.TRANSITIONAL);
             expect(identifier.parser).toBe(NuMarkupChecker._PARSER.XMLDTD);
+            expect(identifier.sniffdoctype).toBe(NuMarkupChecker._SNIFFDOCTYPE.NO);
         });
     });
 
@@ -104,7 +106,8 @@ describe("A Public IDENTIFIERs Detection", function() {
         it(getTestName("HTML4 Strict", true, i, HTML4_STRICT_OK.length), function() {
             var identifier = NuMarkupChecker._getIdentifier(str);
             expect(identifier.preset).toBe(NuMarkupChecker._PRESET.STRICT);
-            expect(identifier.parser).toBe(NuMarkupChecker._PARSER.AUTO);
+            expect(identifier.parser).toBe(NuMarkupChecker._PARSER.HTML);
+            expect(identifier.sniffdoctype).toBe(NuMarkupChecker._SNIFFDOCTYPE.YES);
         });
     });
 
@@ -133,7 +136,8 @@ describe("A Public IDENTIFIERs Detection", function() {
         it(getTestName("HTML 4 Transitional", true, i, HTML4_TRANSITIONAL_OK.length), function() {
             var identifier = NuMarkupChecker._getIdentifier(str);
             expect(identifier.preset).toBe(NuMarkupChecker._PRESET.TRANSITIONAL);
-            expect(identifier.parser).toBe(NuMarkupChecker._PARSER.AUTO);
+            expect(identifier.parser).toBe(NuMarkupChecker._PARSER.HTML);
+            expect(identifier.sniffdoctype).toBe(NuMarkupChecker._SNIFFDOCTYPE.YES);
         });
     });
 

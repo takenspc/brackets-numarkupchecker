@@ -49,7 +49,12 @@ var NuMarkupChecker = (function() {
         // https://github.com/validator/validator/blob/master/src/nu/validator/servlet/VerifierServletTransaction.java
         _PARSER : {
             XMLDTD : "xmldtd",
-            AUTO : "auto"
+            HTML : "html"
+        },
+        
+        _SNIFFDOCTYPE : {
+            YES : "yes",
+            NO : "no"
         },
 
         // https://github.com/validator/validator/blob/master/src/nu/validator/servlet/VerifierServletTransaction.java
@@ -60,26 +65,32 @@ var NuMarkupChecker = (function() {
                     "-//W3C//DTD XHTML 1\\.0 Transitional//EN" : {
                         preset : this._PRESET.TRANSITIONAL,
                         parser : this._PARSER.XMLDTD,
+                        sniffdoctype : this._SNIFFDOCTYPE.NO
                     },
                     "-//W3C//DTD HTML 4\\.01 Transitional//EN" : {
                         preset : this._PRESET.TRANSITIONAL,
-                        parser : this._PARSER.AUTO,
+                        parser : this._PARSER.HTML,
+                        sniffdoctype : this._SNIFFDOCTYPE.YES
                     },
                     "-//W3C//DTD HTML 4\\.0 Transitional//EN" : {
                         preset : this._PRESET.TRANSITIONAL,
-                        parser : this._PARSER.AUTO,
+                        parser : this._PARSER.HTML,
+                        sniffdoctype : this._SNIFFDOCTYPE.YES
                     },
                     "-//W3C//DTD XHTML 1\\.0 Strict//EN" : {
                         preset : this._PRESET.STRICT,
                         parser : this._PARSER.XMLDTD,
+                        sniffdoctype : this._SNIFFDOCTYPE.NO
                     },
                     "-//W3C//DTD HTML 4\\.01//EN" : {
                         preset : this._PRESET.STRICT,
-                        parser : this._PARSER.AUTO,
+                        parser : this._PARSER.HTML,
+                        sniffdoctype : this._SNIFFDOCTYPE.YES
                     },
                     "-//W3C//DTD HTML 4\\.0//EN" : {
                         preset : this._PRESET.STRICT,
-                        parser : this._PARSER.AUTO,
+                        parser : this._PARSER.HTML,
+                        sniffdoctype : this._SNIFFDOCTYPE.YES
                     }
                 };
             }
@@ -107,8 +118,12 @@ var NuMarkupChecker = (function() {
             if (options.supportHTML4andXHTML1) {
                 var identifier = this._getIdentifier(text);
                 if (identifier) {
-                    params.preset = identifier.preset;
-                    params.parser = identifier.parser;
+                    if (identifier.sniffdoctype === this._SNIFFDOCTYPE.YES) {
+                        params.sniffdoctype = identifier.sniffdoctype;
+                    } else {
+                        params.preset = identifier.preset;
+                        params.parser = identifier.parser;
+                    }
                 }
             }
             params.content = text;
